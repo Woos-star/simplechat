@@ -1,11 +1,12 @@
 # lambda/index.py modified to use FastAPI
 import json
 import os
-
 import boto3
 import re  # 正規表現モジュールをインポート
 from botocore.exceptions import ClientError
 import urllib.request
+import urllib.error
+import ssl
 
 #ngrok API
 API_URL = os.environ.get("API_URL", "https://58a2-35-247-15-175.ngrok-free.app/")
@@ -23,7 +24,7 @@ def extract_region_from_arn(arn):
 # bedrock_client = None
 
 # モデルID
-MODEL_ID = os.environ.get("MODEL_ID", "us.amazon.nova-lite-v1:0")
+# MODEL_ID = os.environ.get("MODEL_ID", "us.amazon.nova-lite-v1:0")
 
 def lambda_handler(event, context):
     try:
@@ -101,8 +102,6 @@ def lambda_handler(event, context):
             print("API request error:", str(api_error))
             raise Exception(f"API request failed: {str(api_error)}")
     
-        
-
 
         # # 会話履歴を使用
         # messages = conversation_history.copy()
