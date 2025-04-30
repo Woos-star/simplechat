@@ -9,7 +9,7 @@ import urllib.error
 import ssl
 
 #ngrok API
-API_URL = os.environ.get("API_URL", "https://58a2-35-247-15-175.ngrok-free.app/")
+API_URL = os.environ.get("API_URL", "https://58a2-35-247-15-175.ngrok-free.app")
 
 
 # Lambda コンテキストからリージョンを抽出する関数
